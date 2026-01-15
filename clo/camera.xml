@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project remote="clo-le" name="meta-qti-camera" path="poky/meta-qti-camera" revision="1bb267eeb15610b422b401fd31adbff8be594e9d" upstream="refs/heads/camera-meta.le.7.0.r5-rel"/>
+  <project remote="clo-la" name="platform/packages/apps/SnapdragonCamera" path="vendor/codeaurora/packages/apps/SnapdragonCamera" revision="549aa9700d86e78d03e5d7b414e2974653114cad" upstream="refs/heads/camera-SnapdragonCamera.lnx.7.0.r2-rel">
+    <linkfile dest="vendor/qcom/defs/product-defs/vendor/app_snapcam_product.mk" src="app_snapcam_system_product.mk"/>
+  </project>
+  <project remote="clo-la" name="platform/vendor/opensource/camera-kernel" path="vendor/qcom/opensource/camera-kernel" revision="6e51df6a02e778d5aa02e8050363d17ea4bdff65" upstream="refs/heads/camera-kernel.lnx.7.0.r2-rel">
+    <linkfile dest="vendor/qcom/defs/board-defs/vendor/camera-kernel_board.mk" src="board.mk"/>
+    <linkfile dest="vendor/qcom/defs/product-defs/vendor/camera-kernel_product.mk" src="product.mk"/>
+  </project>
+</manifest>
