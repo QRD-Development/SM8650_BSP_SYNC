@@ -19,18 +19,17 @@ mkdir -p "$download_dir"
 
 # Declaration of versions using associative arrays
 declare -A versions=(
-    [audio]="AU_TECHPACK_AUDIO.LA.9.0.R1.00.00.00.000.087"
-    [camera]="AU_TECHPACK_CAMERA.LA.4.0.R2.00.00.00.000.090"
-    [cv]="AU_TECHPACK_CV.LA.2.0.R1.00.00.00.000.056"
-    [display]="AU_TECHPACK_DISPLAY.LA.4.0.R2.00.00.00.000.098"
-    [graphics]="AU_TECHPACK_GRAPHICS.LA.14.0.R1.00.00.00.000.106"
-    [kernelplatform]="AU_LINUX_KERNEL.PLATFORM.3.0.R1.00.00.00.017.128"
-    [qssi_system]="AU_LINUX_ANDROID_LA.QSSI.16.0.R1.11.00.00.1274.108"
-    [system]="AU_LINUX_ANDROID_LA.QSSI.14.0.R1.14.00.00.1001.226.00"
-    [vendor]="AU_LINUX_ANDROID_LA.VENDOR.14.3.0.R1.00.00.00.000.226"
-    [le]="AU_LINUX_EMBEDDED_LE.UM.7.3.1.R1_TARGET_ALL.01.540.210"
-    [video]="AU_TECHPACK_VIDEO.LA.4.0.R2.00.00.00.000.079"
-    [def_system]="default_LA.QSSI.14.0.r1-22600-qssi.0-1"
+    [audio]="AU_TECHPACK_AUDIO.LA.9.0.R1.00.00.00.000.070"       #
+    [camera]="AU_TECHPACK_CAMERA.LA.4.0.R2.00.00.00.000.066" #
+    [cv]="AU_TECHPACK_CV.LA.2.0.R1.00.00.00.000.048"     #
+    [display]="AU_TECHPACK_DISPLAY.LA.4.0.R2.00.00.00.000.072"  #
+    [graphics]="AU_TECHPACK_GRAPHICS.LA.14.0.R1.00.00.00.000.073"  #
+    [kernelplatform]="AU_LINUX_KERNEL.PLATFORM.3.0.R1.00.00.00.017.100" #
+    [system]="AU_LINUX_ANDROID_LA.QSSI.14.0.R1.14.00.00.1001.162.00"  #
+    [vendor]="AU_LINUX_ANDROID_LA.VENDOR.14.3.0.R1.00.00.00.000.160"  #
+    [le]="LE.UM.7.3.1.r1-16900-genericarmv8-64.0" #
+    [video]="AU_TECHPACK_VIDEO.LA.4.0.R2.00.00.00.000.059"  #
+    [def_system]="default_LA.QSSI.14.0.r1-16200-qssi.0" #
 )
 
 # Loop through each tech pack and process accordingly
@@ -40,14 +39,11 @@ for key in "${!versions[@]}"; do
 
     # Determine the correct URL based on the key
     case $key in
-        audio | camera | cv | display | graphics | video )
+        audio | camera | cv | display | graphics | sensor | video | xr)
             url="$base_url/la/techpack/$key/manifest/-/raw/release/$filename"
             ;;
         kernelplatform)
             url="$base_url/la/$key/manifest/-/raw/release/$filename"
-            ;;
-        qssi_system)
-            url="$base_url/la/la/system/manifest/-/raw/release/$filename"
             ;;
         system | vendor)
             url="$base_url/la/la/$key/manifest/-/raw/release/$filename"

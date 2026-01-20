@@ -4,7 +4,7 @@
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/mmrm_kernel_board.mk" src="mmrm_kernel_board.mk"/>
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/mmrm_kernel_product.mk" src="mmrm_kernel_product.mk"/>
   </project>
-  <project remote="clo-la" name="platform/vendor/opensource/video-driver" path="vendor/qcom/opensource/video-driver" revision="7a5e292d66d426cfdf4c931ae0d0f3e698e89a9d" upstream="refs/heads/video-kernel.lnx.4.0.r2-rel" groups="cyborg">
+  <project remote="clo-la" name="platform/vendor/opensource/video-driver" path="vendor/qcom/opensource/video-driver" revision="add9bd398ae6c12ea07fe9c0f0c2479808994007" upstream="refs/heads/video-kernel.lnx.4.0.r2-rel" groups="cyborg">
     <linkfile dest="vendor/qcom/defs/product-defs/vendor/video_kernel_product.mk" src="video_kernel_product.mk"/>
     <linkfile dest="vendor/qcom/defs/board-defs/vendor/video_kernel_board.mk" src="video_kernel_board.mk"/>
   </project>
