@@ -17,7 +17,7 @@ function sync_repo {
     fi
 
     echo "[+] Starting repo sync..."
-    if schedtool -B -e ionice -n 0 repo sync -n -c --force-sync --optimized-fetch --no-tags --retry-fetches=5 -j"$(nproc --all)"; then
+    if schedtool -B -e ionice -n 0 repo sync -c --force-sync --optimized-fetch --no-tags --retry-fetches=5 -j"$(nproc --all)"; then
         echo "[+] Repo synced successfully."
     else
         echo "[-] Error: Failed to sync repo."
