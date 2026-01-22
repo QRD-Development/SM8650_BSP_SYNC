@@ -9,7 +9,7 @@ function sync_repo {
     mkdir -p "$1" && cd "$1"
     echo "[+] Changed directory to $1."
 
-    if repo init --depth=1 -q -u https://gitee.com/littlenineennea/sm8650_-a16.git -b master -m "$2"; then
+    if repo init --depth=1 -q -u https://github.com/QRD-Development/SM8650_BSP_SYNC -b LA.VENDOR.14.3.0.r1-22600-lanai.QSSI16.0-1 -m "$2"; then
         echo "[+] Repo initialized successfully."
     else
         echo "[-] Error: Failed to initialize repo."
