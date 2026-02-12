@@ -11,7 +11,8 @@ function build_target {
     cd "$VENDOR_DIR"
     source build/envsetup.sh
     lunch kalama-userdebug
-    RECOMPILE_KERNEL=1 kernel_platform/build/android/prepare_vendor.sh kalama gki
+    bash kernel_platform/qcom/proprietary/prebuilt_HY11/vendorsetup.sh
+    RECOMPILE_KERNEL=1 kernel_platform/build/android/prepare_vendor.sh pineapple gki
     ./build.sh dist --target_only -j "$(nproc --all)"
 }
 
@@ -36,17 +37,8 @@ function build_super {
         --skip_qiifa
 }
 
-function build_kernel {
-    cd "$VENDOR_DIR"
-    bash kernel_platform/qcom/proprietary/prebuilt_HY11/vendorsetup.sh
-    cd "$KERNEL_PLATFORM"
-    BUILD_CONFIG=./common/build.config.msm.kalama ./build/all-variants.sh "./build/build.sh" |& tee kernel_makelog_$(date +%Y%m%d_%H%M%S).txt
-    cd "$VENDOR_DIR"
-    cp -r "$KERNEL_PLATFORM"/out/* "$VENDOR_DIR"/out/
-}
-
 function build_le {
-    cd "$KERNEL_PLATFORM" && BUILD_CONFIG=msm-kernel/build.config.msm.kalama.tuivm VARIANT=debug_defconfig ./build/build.sh
+    cd "$KERNEL_PLATFORM" && BUILD_CONFIG=msm-kernel/build.config.msm.pineapple.tuivm VARIANT=debug_defconfig ./build/build.sh
     mkdir -p "$LE_DIR"/src/kernel-5.15/
     cp -rp "$VENDOR_DIR"/kernel_platform "$LE_DIR"/src/kernel-5.15/
     cp -rp "$VENDOR_DIR"/kernel_platform/out/ "$LE_DIR"/src/kernel-5.15/
